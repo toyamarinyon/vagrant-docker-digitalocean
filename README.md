@@ -1,6 +1,14 @@
-# vagrant-docker-digitalocean
+# vagrant-docker-digitalocean(forked from [glidenote/vagrant-docker-digitalocean](https://github.com/glidenote/vagrant-docker-digitalocean))
 
 ![](http://blog.glidenote.com/images/2013/12/vagrant-docker-digital-ocean.png)
+
+## glidenoteさんからの変更点
+
+ * providerにvirtualboxを追加、ローカル環境もセットアップ出来るようにしました。
+ * Degital Oceanの`clinet_id`と`api_key`,`ssh key`を環境変数から読み込むように変更。
+
+### 以下、form元と同様です。
+
 
 ## これは何
 
