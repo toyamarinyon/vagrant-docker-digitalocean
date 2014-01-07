@@ -10,7 +10,7 @@ Vagrant.configure('2') do |config|
     override.vm.box               = 'digital_ocean'
     override.vm.box_url           = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
 
-    provider.image                = 'CentOS 6.4 x64'
+    provider.image                = 'Ubuntu 13.04 x64'
     provider.region               = 'New York 1'
     provider.size                 = '1GB'
     provider.ca_path              = '/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt'
@@ -23,11 +23,14 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.provision :shell, :inline => <<-EOT
-    rpm -Uvh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
-    yum -y upgrade
-    yum -y install docker-io
-    chkconfig docker on
-    service docker start
+    sudo aptitude update
+	sudo aptitude -y upgrade
+	sudo aptitude install linux-image-extra-`uname -r`
+	sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
+	sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+	sudo aptitude update
+	sudo aptitude -y install lxc-docker
+	sudo docker -d &
   EOT
 
 end
