@@ -17,8 +17,8 @@ Vagrant.configure('2') do |config|
   end
   
   config.vm.provider :virtualbox do |provider|
-    config.vm.box = "centos6.4"
-    config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box"
+    config.vm.box = "Ubuntu 13.04 x64"
+    config.vm.box_url = "http://goo.gl/ceHWg"
     provider.memory = 512
   end
 
