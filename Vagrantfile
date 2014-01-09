@@ -29,7 +29,7 @@ Vagrant.configure('2') do |config|
 	sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
 	sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 	sudo aptitude update
-	sudo aptitude -y install lxc-docker
+	sudo aptitude -y install lxc-docker git curl
 	sudo docker -d &
   EOT
 
