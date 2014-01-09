@@ -31,6 +31,8 @@ Vagrant.configure('2') do |config|
 	sudo aptitude update
 	sudo aptitude -y install lxc-docker git curl
 	sudo docker -d &
+	curl -L https://www.opscode.com/chef/install.sh | sudo bash
+	echo 'export PATH="/opt/chef/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
   EOT
 
 end
